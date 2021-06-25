@@ -8,6 +8,6 @@ namespace Esquirlas.Domain.Entities
 {
     public class Faccion
     {
-
+        public bool Status;
     }
 }

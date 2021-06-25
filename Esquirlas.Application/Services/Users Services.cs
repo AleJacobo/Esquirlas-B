@@ -1,0 +1,16 @@
+﻿using Esquirlas.Infrastructure;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Esquirlas.Application.Services
+{
+    public class Users_Services
+    {
+        private readonly Users_Services users_;
+
+
+    }
+}

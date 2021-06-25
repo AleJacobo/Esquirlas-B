@@ -8,6 +8,6 @@ namespace Esquirlas.Domain.Entities
 {
     public class Personaje
     {
-
+        public bool Status;
     }
 }
