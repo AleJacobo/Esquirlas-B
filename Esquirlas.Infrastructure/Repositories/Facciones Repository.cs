@@ -1,17 +1,20 @@
-﻿using Esquirlas.Application.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
     public class Facciones_Repository
     {
-        private DataContext context { get; set; }
+        private readonly DataContext context;
         public Facciones_Repository(DataContext context)
         {
             this.context = context;
         }
 
+        //forma ale
         public List<FaccionesDTO> getAllFacciones()
         {
             List<FaccionesDTO> resultfacciones = new List<FaccionesDTO>();
@@ -41,7 +44,7 @@ namespace Esquirlas.Infrastructure.Repositories
         {
             var faccion = context.Facciones.Where(x => x.Status == true).FirstOrDefault();
 
-            if (faccion!=null)
+            if (faccion != null)
             {
                 // hacer el update de primitivos
                 context.Facciones.Update(faccion);
@@ -70,6 +73,8 @@ namespace Esquirlas.Infrastructure.Repositories
                 //agregar primitivos
             };
             return faccionesDTO;
+
+            //forma nel
         }
     }
 }

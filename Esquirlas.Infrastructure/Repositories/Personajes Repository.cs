@@ -1,19 +1,24 @@
-﻿using Esquirlas.Application.DTO;
+using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Esquirlas.Domain.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
-    public class Personajes_Repository
+    public class Personajes_Repository: IPersonajes_Repository
     {
-        private DataContext context { get; set; }
+        private readonly DataContext context;
         public Personajes_Repository(DataContext context)
         {
             this.context = context;
         }
+
+        //forma ale
+        /*
         public List<PersonajesDTO> getAllPersonajes()
         {
             List<PersonajesDTO> resultpersonajes = new List<PersonajesDTO>();
@@ -22,7 +27,7 @@ namespace Esquirlas.Infrastructure.Repositories
 
             foreach (var x in personajes)
             {
-                PersonajesDTO personaje= new PersonajesDTO
+                PersonajesDTO personaje = new PersonajesDTO
                 {
                     // Agregar Primitivos aca.
                 };
@@ -71,6 +76,32 @@ namespace Esquirlas.Infrastructure.Repositories
                 //agregar primitivos
             };
             return personajesDTO;
+        }
+        */
+        //forma nelson
+        // Todo se realiza al enlazarlo con la interface y el datacontext
+        public IQueryable<Personaje> GetAllPersonajes()
+        {            
+            return context.Personajes
+                .Where(x => x.IsDeleted == false);
+        }
+        public Personaje GetById(Guid personajeId)
+        {
+            return context.Personajes.Where(x => x.IsDeleted == false).FirstOrDefault(x => x.PersonajeId == personajeId);
+        }
+        public bool Exists(Guid personajeId)
+        {
+            return context.Personajes.Any(x => x.PersonajeId == personajeId);
+        }
+        public void Create(Personaje entity)
+        {
+            context.Add(entity);
+            context.SaveChanges();
+        }
+        public void Update(Personaje entity)
+        {
+            context.Update(entity);
+            context.SaveChanges();
         }
     }
 }
