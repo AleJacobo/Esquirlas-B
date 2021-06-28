@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
 using Esquirlas.Domain.Entities;

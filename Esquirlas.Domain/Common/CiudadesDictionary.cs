@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,6 @@ namespace Esquirlas.Domain.Common
     {
         public static readonly Dictionary<int, string> Ciudades = new Dictionary<int, string>()
         {
-            //TODOS: Agregar el nombre de las ciudades en el string
             { 1, "Lycia, Capital del Imperio, Arvogan" },
             { 2, "Farnor, Tierras de Ariolus, Arvogan " },
             { 3, "Merell, Arvogan" },

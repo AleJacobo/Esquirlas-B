@@ -1,4 +1,4 @@
-﻿using Esquirlas.Infrastructure.Interfaces;
+using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
