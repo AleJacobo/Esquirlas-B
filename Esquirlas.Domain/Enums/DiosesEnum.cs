@@ -11,6 +11,7 @@ namespace Esquirlas.Domain.Enums
         //TODO: Agregar el nombre de los DIOSES
         Farna,
         Horomir,
-        De_las_Mentiras
+        De_las_Mentiras,
+        The_Allmighty_Voice
     }
 }

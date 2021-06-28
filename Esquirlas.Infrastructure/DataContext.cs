@@ -8,10 +8,11 @@ using Esquirlas.Domain.Entities;
 
 namespace Esquirlas.Infrastructure
 {
-    class DataContext : DbContext
+    public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Personaje> Personajes { get; set; }
+        public DbSet<Faccion> Facciones { get; set; }
     }
 }
