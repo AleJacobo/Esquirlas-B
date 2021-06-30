@@ -13,16 +13,16 @@ namespace Esquirlas.API.Controllers
     [ApiController]
     public class PersonajesController : ControllerBase
     {
-        private readonly IPersonajesServices personajesServices;
-        public PersonajesController(IPersonajesServices personajesServices)
+        private readonly IPersonajesServices IpersonajesServices;
+        public PersonajesController(IPersonajesServices IpersonajesServices)
         {
-            this.personajesServices = personajesServices;
+            this.IpersonajesServices = IpersonajesServices;
         }
 
         [HttpGet]
         public ActionResult<Result> GetAllPersonajes([FromQuery] Personaje request)
         {
-            var response = personajesServices.GetAllPersonajes(request);
+            var response = IpersonajesServices.GetAllPersonajes(request);
 
             return response;
         }
@@ -30,7 +30,7 @@ namespace Esquirlas.API.Controllers
         [HttpPost]
         public ActionResult<Result> Create([FromBody] Personaje request)
         {
-            var response = personajesServices.CreatePersonaje(request);
+            var response = IpersonajesServices.CreatePersonaje(request);
 
             if (response.HasErrors)
                 return BadRequest(response.Messages);
@@ -41,7 +41,7 @@ namespace Esquirlas.API.Controllers
         [HttpPut]
         public ActionResult<Result> Update()
         {
-            var response = personajesServices.UpdatePersonaje();
+            var response = IpersonajesServices.UpdatePersonaje();
 
             if (response.HasErrors)
             {
@@ -54,7 +54,7 @@ namespace Esquirlas.API.Controllers
         [HttpDelete("{personajeId}")]
         public ActionResult<Result> Delete([FromRoute] Guid personajeId)
         {
-            var response = personajesServices.DeletePersonaje(personajeId);
+            var response = IpersonajesServices.DeletePersonaje(personajeId);
 
             return response.HasErrors
                 ? BadRequest(response.Messages)
