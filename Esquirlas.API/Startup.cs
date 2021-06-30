@@ -39,10 +39,10 @@ namespace Esquirlas.API
             services.AddControllers();
 
             /// Add Services
-            services.AddTransient<IPersonajes_Services, Personajes_Services>();
+            services.AddTransient<IPersonajesServices, PersonajesServices>();
 
             /// Add Repositories
-            services.AddTransient<IPersonajes_Repository, Personajes_Repository>();
+            services.AddTransient<IPersonajesRepository, PersonajesRepository>();
 
             /// Add FluentValidation
             services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonajeValidator>());

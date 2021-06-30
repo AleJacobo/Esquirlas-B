@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
-    public class Users_Repository
+    public class UsersRepository
     {
         private DataContext context { get; set; }
-        public Users_Repository(DataContext context)
+        public UsersRepository(DataContext context)
         {
             this.context = context;
         }

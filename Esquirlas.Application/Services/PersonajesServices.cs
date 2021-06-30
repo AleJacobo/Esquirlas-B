@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Services
 {
-    public class Personajes_Services : IPersonajes_Services
+    public class PersonajesServices : IPersonajesServices
     {
         private readonly IMapper mapper;
-        private readonly IPersonajes_Repository personajes_Repository;
+        private readonly IPersonajesRepository Ipersonajesrepository;
         
-        public Personajes_Services(IMapper mapper, IPersonajes_Repository personajes_Repository)
+        public PersonajesServices(IMapper mapper, IPersonajesRepository Ipersonajesrepository)
         {            
-            this.personajes_Repository = personajes_Repository;
+            this.Ipersonajesrepository = Ipersonajesrepository;
             this.mapper = mapper;
         }
 
-        public Result GetAllFilter(Personaje request)
+        public Result GetAllPersonajes(Personaje request)
         {
-            var personajesDb = personajes_Repository.GetAllPeronajes();
+            var personajesDb = Ipersonajesrepository.GetAllPersonajes();
 
             var response = personajesDb;
 
@@ -36,26 +36,26 @@ namespace Esquirlas.Application.Services
 
         public Result CreatePersonaje(Personaje request)
         {
-            bool exists = personajes_Repository.Exists(request.PersonajeId);
+            bool exists = Ipersonajesrepository.PersonajeExists(request.PersonajeId);
             if (exists)
                 return new Result().Fail("Ya Existe un Registro de este Personaje");
 
             var entity = mapper.Map<Personaje>(request);
 
-            personajes_Repository.Create(entity);
+            Ipersonajesrepository.CreatePersonaje(entity);
 
             return new Result().Success($"Se Registró el Personaje {entity.Name} {entity.LastName}");
         }
 
         public Result DeletePersonaje(Guid PersonajeId)
         {
-            Personaje entity = personajes_Repository.GetById(PersonajeId);
+            Personaje entity = Ipersonajesrepository.GetPersonajeById(PersonajeId);
             if (entity == null)
                 return new Result().NotFound();
 
             entity.IsDeleted = true;
 
-            personajes_Repository.Update(entity);
+            Ipersonajesrepository.UpdatePersonaje(entity);
             return new Result().Success("Se eliminó el Personaje");
         }
         

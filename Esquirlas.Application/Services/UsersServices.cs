@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Services
 {
-    public class Users_Services
+    public class UsersServices
     {
-        private readonly Users_Services users_;
+        private readonly UsersServices users_;
     }
 }

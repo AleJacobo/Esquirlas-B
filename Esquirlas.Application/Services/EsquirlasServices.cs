@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Services
 {
-    public class Facciones_Services
+    public class EsquirlasServices
     {
-        private readonly Facciones_Services facciones_;
+        private readonly EsquirlasServices esquirlas_;
     }
 }

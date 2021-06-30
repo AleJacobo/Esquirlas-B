@@ -3,3 +3,8 @@ C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Infrastructure\obj\Debug\
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.AssemblyInfo.cs
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Infrastructure\bin\Debug\net5.0\Esquirlas.Domain.dll
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Infrastructure\obj\Debug\net5.0\Esquirlas.Infrastructure.AssemblyInfo.cs
