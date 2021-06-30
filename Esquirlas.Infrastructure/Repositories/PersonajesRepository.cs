@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
-    public class Personajes_Repository: IPersonajes_Repository
+    public class PersonajesRepository: IPersonajesRepository
     {
         private readonly DataContext context;
-        public Personajes_Repository(DataContext context)
+        public PersonajesRepository(DataContext context)
         {
             this.context = context;
         }
-
-        //forma ale
+        #region FormaAle
+		//forma ale
         /*
         public List<PersonajesDTO> getAllPersonajes()
         {
@@ -76,8 +76,8 @@ namespace Esquirlas.Infrastructure.Repositories
                 //agregar primitivos
             };
             return personajesDTO;
-        }
-        */
+        } */
+	#endregion
         //forma nelson
         // Todo se realiza al enlazarlo con la interface y el datacontext
         public IQueryable<Personaje> GetAllPersonajes()
@@ -85,22 +85,32 @@ namespace Esquirlas.Infrastructure.Repositories
             return context.Personajes
                 .Where(x => x.IsDeleted == false);
         }
-        public Personaje GetById(Guid personajeId)
+        public Personaje GetPersonajeById(Guid personajeId)
         {
-            return context.Personajes.Where(x => x.IsDeleted == false).FirstOrDefault(x => x.PersonajeId == personajeId);
+            return context.Personajes
+                .Where(x => x.IsDeleted == false && x.PersonajeId == personajeId).FirstOrDefault();
         }
-        public bool Exists(Guid personajeId)
+        public bool PersonajeExists(Guid personajeId)
         {
             return context.Personajes.Any(x => x.PersonajeId == personajeId);
         }
-        public void Create(Personaje entity)
+        public void CreatePersonaje(Personaje entity)
         {
-            context.Add(entity);
+            context.Personajes.Add(entity);
             context.SaveChanges();
         }
-        public void Update(Personaje entity)
+        /*public void DeletePersonaje(Guid personajeId)
         {
-            context.Update(entity);
+            var personaje= context.Facciones
+                .Where(x => x.FaccionId == personajeId && x.IsDeleted == false).FirstOrDefault();
+
+            personaje.IsDeleted = true;
+            context.Facciones.Update(personaje);
+            context.SaveChanges();
+        } */
+        public void UpdatePersonaje(Personaje entity)
+        {
+            context.Personajes.Update(entity);
             context.SaveChanges();
         }
     }

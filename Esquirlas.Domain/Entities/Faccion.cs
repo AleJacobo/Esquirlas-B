@@ -8,8 +8,9 @@ namespace Esquirlas.Domain.Entities
 {
     public class Faccion
     {
-        public bool Status;
         public Guid FaccionId { get; set; }
+        public string Name { get; set; }
         public string Status { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

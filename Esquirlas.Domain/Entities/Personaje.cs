@@ -8,7 +8,6 @@ namespace Esquirlas.Domain.Entities
 {
     public class Personaje
     {
-        public bool Status;
         public Guid PersonajeId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
