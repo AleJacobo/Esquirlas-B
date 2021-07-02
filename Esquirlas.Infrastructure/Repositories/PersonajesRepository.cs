@@ -98,19 +98,20 @@ namespace Esquirlas.Infrastructure.Repositories
         {
             context.Personajes.Add(entity);
             context.SaveChanges();
-        }
-        /*public void DeletePersonaje(Guid personajeId)
-        {
-            var personaje= context.Facciones
-                .Where(x => x.FaccionId == personajeId && x.IsDeleted == false).FirstOrDefault();
-
-            personaje.IsDeleted = true;
-            context.Facciones.Update(personaje);
-            context.SaveChanges();
-        } */
+        }        
         public void UpdatePersonaje(Personaje entity)
         {
             context.Personajes.Update(entity);
+            context.SaveChanges();
+        }
+        public void DeletePersonaje(Guid personajeId)
+        {
+            var personaje = context.Personajes
+                .Where(x => x.PersonajeId == personajeId && x.IsDeleted == false).FirstOrDefault();
+
+            personaje.IsDeleted = true;
+
+            context.Personajes.Remove(personaje);
             context.SaveChanges();
         }
     }

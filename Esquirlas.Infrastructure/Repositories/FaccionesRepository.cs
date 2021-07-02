@@ -20,12 +20,12 @@ namespace Esquirlas.Infrastructure.Repositories
             return context.Facciones
                 .Where(x => x.IsDeleted == false);
         }
-        public Faccion GetFaccionById(Guid faccionId)
+        public Faccion GetFaccionById(int faccionId)
         {
             return context.Facciones
                    .Where(x => x.IsDeleted == false && x.FaccionId == faccionId).FirstOrDefault();
         }
-        public bool FaccionExists(Guid faccionId)
+        public bool FaccionExists(int faccionId)
         {
             return context.Facciones
                 .Any(x => x.FaccionId == faccionId);

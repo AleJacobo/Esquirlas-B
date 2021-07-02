@@ -14,5 +14,6 @@ namespace Esquirlas.Infrastructure.Interfaces
         bool PersonajeExists(Guid personajeId);
         void CreatePersonaje(Personaje entity);
         void UpdatePersonaje(Personaje entity);
+        void DeletePersonaje(Guid personajeId);
     }
 }
