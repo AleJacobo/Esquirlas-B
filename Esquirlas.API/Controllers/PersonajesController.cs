@@ -13,17 +13,16 @@ namespace Esquirlas.API.Controllers
     [ApiController]
     public class PersonajesController : ControllerBase
     {
-        private readonly IPersonajesServices personajes_Services;
-
-        public PersonajesController(IPersonajesServices personajes_Services)
+        private readonly IPersonajesServices IpersonajesServices;
+        public PersonajesController(IPersonajesServices IpersonajesServices)
         {
-            this.personajes_Services = personajes_Services;
+            this.IpersonajesServices = IpersonajesServices;
         }
 
         [HttpGet]
-        public ActionResult<Result> GetFilter([FromQuery] Personaje request)
+        public ActionResult<Result> GetAllPersonajes([FromQuery] Personaje request)
         {
-            var response = personajes_Services.GetAllPersonajes(request);
+            var response = IpersonajesServices.GetAllPersonajes(request);
 
             return response;
         }
@@ -31,7 +30,7 @@ namespace Esquirlas.API.Controllers
         [HttpPost]
         public ActionResult<Result> Create([FromBody] Personaje request)
         {
-            var response = personajes_Services.CreatePersonaje(request);
+            var response = IpersonajesServices.CreatePersonaje(request);
 
             if (response.HasErrors)
                 return BadRequest(response.Messages);
@@ -42,7 +41,7 @@ namespace Esquirlas.API.Controllers
         [HttpPut]
         public ActionResult<Result> Update()
         {
-            var response = personajes_Services.UpdatePersonaje();
+            var response = IpersonajesServices.UpdatePersonaje();
 
             if (response.HasErrors)
             {
@@ -55,7 +54,7 @@ namespace Esquirlas.API.Controllers
         [HttpDelete("{personajeId}")]
         public ActionResult<Result> Delete([FromRoute] Guid personajeId)
         {
-            var response = personajes_Services.DeletePersonaje(personajeId);
+            var response = IpersonajesServices.DeletePersonaje(personajeId);
 
             return response.HasErrors
                 ? BadRequest(response.Messages)
