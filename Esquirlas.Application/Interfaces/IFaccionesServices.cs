@@ -12,7 +12,7 @@ namespace Esquirlas.Application.Interfaces
     {
         Result GetAllFacciones(Faccion request);
         Result CreateFaccion(Faccion request);
-        Result DeleteFaccion(Guid faccionId);
+        Result DeleteFaccion(int faccionId);
         Result UpdateFaccion();
 
     }
