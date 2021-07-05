@@ -3,12 +3,12 @@ using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
 using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Services
 {
@@ -67,6 +67,17 @@ namespace Esquirlas.Application.Services
             Ifaccionesrepository.UpdateFaccion(entity);
             return new Result().Success("Se han aplicado los cambios correctamente");
 
+        }
+        public Result FaccionFilterBy(int filtro)
+        {
+            eFiltrosFacciones filter = (eFiltrosFacciones)(Enum.GetValues(typeof(eFiltrosFacciones)))
+               .GetValue(filtro);
+
+            var response = Ifaccionesrepository.FaccionFilterBy(filter);
+
+            var response2 = mapper.Map<List<Personaje>>(response);
+
+            return new Result().Success($"{response2}");
         }
     }
 }

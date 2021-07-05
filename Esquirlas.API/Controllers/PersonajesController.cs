@@ -2,6 +2,7 @@
 using Esquirlas.Domain.Common;
 using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,17 @@ namespace Esquirlas.API.Controllers
         } 
         #endregion
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes([FromQuery] PersonajeDTO personajeDTO)
+        public ActionResult<Result> GetAllPersonajes()
         {
-            var response = IpersonajesServices.GetAllPersonajes(personajeDTO);
+            var response = IpersonajesServices.GetAllPersonajes();
+
+            return response;
+        }
+
+        [HttpGet]
+        public ActionResult<Result> PersonajesFilterBy([FromQuery] int filtro)
+        {
+            var response = IpersonajesServices.PersonajeFilterBy(filtro);
 
             return response;
         }

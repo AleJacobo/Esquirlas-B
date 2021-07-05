@@ -1,5 +1,6 @@
 ﻿using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Esquirlas.Infrastructure.Interfaces
         bool FaccionExists(int faccionId);
         void CreateFaccion(Faccion entity);
         void UpdateFaccion(Faccion entity);
+        IQueryable<Faccion> FaccionFilterBy(eFiltrosFacciones filter);
     }
 }

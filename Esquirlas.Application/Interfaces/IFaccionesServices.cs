@@ -10,6 +10,7 @@ namespace Esquirlas.Application.Interfaces
         Result CreateFaccion(FaccionDTO faccionDTO);
         Result DeleteFaccion(FaccionDTO faccionDTO);
         Result UpdateFaccion(FaccionDTO faccionDTO);
+        Result FaccionFilterBy(int filtro);
 
     }
 }

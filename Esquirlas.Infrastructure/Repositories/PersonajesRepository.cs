@@ -6,6 +6,7 @@ using Esquirlas.Domain.Entities;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Esquirlas.Domain.Enums;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
@@ -105,14 +106,11 @@ namespace Esquirlas.Infrastructure.Repositories
             context.Personajes.Update(entity);
             context.SaveChanges();
         }
-        /*public void DeletePersonaje(Guid personajeId)
+        public IQueryable<Personaje> PersonajeFilterBy(eFiltrosPersonajes filter)
         {
-            var personaje= context.Facciones
-                .Where(x => x.FaccionId == personajeId && x.IsDeleted == false).FirstOrDefault();
-
-            personaje.IsDeleted = true;
-            context.Facciones.Update(personaje);
-            context.SaveChanges();
-        } */
+            return context.Personajes
+                 .Where(x => x.IsDeleted == false && x.Equals(filter));
+        }
+       
     }
 }

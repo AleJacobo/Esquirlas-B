@@ -1,5 +1,6 @@
 using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,10 @@ namespace Esquirlas.Infrastructure.Repositories
             context.Facciones.Update(entity);
             context.SaveChanges();
         }
-
+        public IQueryable<Faccion> FaccionFilterBy(eFiltrosFacciones filter)
+        {
+            return context.Facciones
+                  .Where(x => x.IsDeleted == false && x.Equals(filter));
+        }
     }
 }
