@@ -4,3 +4,8 @@ C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Application\obj\Debug\net
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.AssemblyInfoInputs.cache
 C:\Users\facu\Desktop\INCCOMMUNITY\ESQUIRLAS\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.AssemblyInfo.cs
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.csprojAssemblyReference.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.AssemblyInfoInputs.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.AssemblyInfo.cs
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.Application\obj\Debug\net5.0\Esquirlas.Application.csproj.CoreCompileInputs.cache

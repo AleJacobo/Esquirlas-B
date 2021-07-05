@@ -35,10 +35,28 @@ namespace Esquirlas.Infrastructure.EntityConfigurations
                 .HasAnnotation("Relational:ColumnName", "Age")
                 .IsRequired();
 
+            builder.Property(e => e.Raza)
+                .HasAnnotation("Relational:ColumnName", "Race")
+                .IsRequired();
+
+            builder.Property(e => e.Clase)
+                .HasAnnotation("Relational:ColumnName", "Class")
+                .IsRequired();
+
+            builder.Property(e => e.Status)
+                .HasAnnotation("Relational: ColumnName", "Status")
+                .IsRequired();
+
             builder.Property(e => e.IsDeleted)
                 .HasAnnotation("Relational:ColumnName", "IsDeleted")
                 .IsRequired();
-            // continuar con el resto con respesto a personje validator
+
+
+            
+            /* Se agregaron los enums de Raza y Clases... la pregunta es, como la integramos para que quede
+            escrita??*/
+
+
         }
     }
 }

@@ -33,7 +33,6 @@ namespace Esquirlas.Infrastructure.EntityConfigurations
             builder.Property(e => e.IsDeleted)
                 .HasAnnotation("Relational:ColumnName", "IsDeleted")
                 .IsRequired();
-
         }
     }
 }

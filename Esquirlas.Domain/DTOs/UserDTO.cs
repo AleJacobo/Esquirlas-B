@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Domain.DTOs
 {
-    class UsersDTO
+    public class UserDTO
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Esquirlas.Domain.Entities
+namespace Esquirlas.Domain.DTOs
 {
-    public class Faccion
+    public class FaccionDTO
     {
         public int FaccionId { get; set; }
         public string Name { get; set; }
@@ -14,3 +14,4 @@ namespace Esquirlas.Domain.Entities
         public bool IsDeleted { get; set; }
     }
 }
+
