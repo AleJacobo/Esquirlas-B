@@ -30,7 +30,7 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Result> Create([FromBody] PersonajeDTO personajeDTO)
+        public ActionResult<Result> CreatePersonaje([FromBody] PersonajeDTO personajeDTO)
         {
             var response = IpersonajesServices.CreatePersonaje(personajeDTO);
 
@@ -41,7 +41,7 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Result> Update(PersonajeDTO personajeDTO)
+        public ActionResult<Result> UpdatePersonaje(PersonajeDTO personajeDTO)
         {
             var response = IpersonajesServices.UpdatePersonaje(personajeDTO);
 
@@ -54,7 +54,7 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpDelete("{personajeId}")]
-        public ActionResult<Result> Delete([FromRoute] PersonajeDTO personajeDTO)
+        public ActionResult<Result> DeletePersonaje([FromRoute] PersonajeDTO personajeDTO)
         {
             var response = IpersonajesServices.DeletePersonaje(personajeDTO);
 
