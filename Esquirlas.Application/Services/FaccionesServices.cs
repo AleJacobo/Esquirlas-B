@@ -1,6 +1,7 @@
 using AutoMapper;
 using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
+using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
 using Esquirlas.Infrastructure.Interfaces;
 using System;
@@ -13,41 +14,40 @@ namespace Esquirlas.Application.Services
 {
     public class FaccionesServices : IFaccionesServices
     {
+        #region Obj and Context
         private readonly IMapper mapper;
         private readonly IFaccionesRepository Ifaccionesrepository;
-
         public FaccionesServices(IMapper mapper, IFaccionesRepository Ifaccionesrepository)
         {
-            this.Ifaccionesrepository= Ifaccionesrepository;
+            this.Ifaccionesrepository = Ifaccionesrepository;
             this.mapper = mapper;
-        }
-
-        public Result GetAllFacciones(Faccion request)
+        } 
+        #endregion
+        public Result GetAllFacciones()
         {
             var faccionesDb = Ifaccionesrepository.GetAllFacciones();
 
             var response = faccionesDb;
 
-            var response2 = mapper.Map<List<Faccion>>(response);
+            var response2 = mapper.Map<List<FaccionDTO>>(response);
 
             return new Result().Success($"{response2}");
 
         }
-
-        public Result CreateFaccion(Faccion request)
+        public Result CreateFaccion(FaccionDTO faccionDTO)
         {
-            bool exists = Ifaccionesrepository.FaccionExists(request.FaccionId);
+            bool exists = Ifaccionesrepository.FaccionExists(faccionDTO.FaccionId);
             if (exists)
                 return new Result().Fail("Ya existe un registro de esa faccion");
 
-            var entity = mapper.Map<Faccion>(request);
+            var entity = mapper.Map<Faccion>(faccionDTO);
             Ifaccionesrepository.CreateFaccion(entity);
 
-            return new Result().Success($"Se Registró la Faccion {entity.Name}");
+            return new Result().Success($"Se Registró la Faccion {faccionDTO.Name}");
         }
-        public Result DeleteFaccion(Guid faccionId)
+        public Result DeleteFaccion(FaccionDTO faccionDTO)
         {
-            Faccion entity = Ifaccionesrepository.GetFaccionById(faccionId);
+            Faccion entity = Ifaccionesrepository.GetFaccionById(faccionDTO.FaccionId);
             if (entity == null)
                 return new Result().NotFound();
 
@@ -56,10 +56,17 @@ namespace Esquirlas.Application.Services
             Ifaccionesrepository.UpdateFaccion(entity);
             return new Result().Success("Se eliminó la Faccion");
         }
-
-        public Result UpdateFaccion()
+        public Result UpdateFaccion(FaccionDTO faccionDTO)
         {
-            throw new NotImplementedException();
+            Faccion oldfaccion = Ifaccionesrepository.GetFaccionById(faccionDTO.FaccionId);
+            if (oldfaccion == null)
+                return new Result().NotFound();
+            
+            var entity = mapper.Map<Faccion>(faccionDTO);
+
+            Ifaccionesrepository.UpdateFaccion(entity);
+            return new Result().Success("Se han aplicado los cambios correctamente");
+
         }
     }
 }

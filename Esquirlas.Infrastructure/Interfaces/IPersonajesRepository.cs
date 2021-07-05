@@ -10,8 +10,8 @@ namespace Esquirlas.Infrastructure.Interfaces
     public interface IPersonajesRepository
     {
         IQueryable<Personaje> GetAllPersonajes();
-        Personaje GetPersonajeById(Guid personajeId);
-        bool PersonajeExists(Guid personajeId);
+        Personaje GetPersonajeById(int personajeId);
+        bool PersonajeExists(int personajeId);
         void CreatePersonaje(Personaje entity);
         void UpdatePersonaje(Personaje entity);
     }

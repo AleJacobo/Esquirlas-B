@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Esquirlas.Domain.Entities
+namespace Esquirlas.Domain.DTOs
 {
-    public class Personaje 
+    public class PersonajeDTO
     {
         public int PersonajeId { get; set; }
         public string Name { get; set; }
@@ -17,7 +17,5 @@ namespace Esquirlas.Domain.Entities
         public eClases Clase { get; set; }
         public string Status { get; set; }
         public bool IsDeleted { get; set; }
-
-
     }
 }

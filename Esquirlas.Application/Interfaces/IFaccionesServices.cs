@@ -1,19 +1,15 @@
 ﻿using Esquirlas.Domain.Common;
 using Esquirlas.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Esquirlas.Domain.DTOs;
 
 namespace Esquirlas.Application.Interfaces
 {
     public interface IFaccionesServices
     {
-        Result GetAllFacciones(Faccion request);
-        Result CreateFaccion(Faccion request);
-        Result DeleteFaccion(Guid faccionId);
-        Result UpdateFaccion();
+        Result GetAllFacciones();
+        Result CreateFaccion(FaccionDTO faccionDTO);
+        Result DeleteFaccion(FaccionDTO faccionDTO);
+        Result UpdateFaccion(FaccionDTO faccionDTO);
 
     }
 }

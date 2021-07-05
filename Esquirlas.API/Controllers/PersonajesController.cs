@@ -1,5 +1,6 @@
 ﻿using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
+using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,16 +14,17 @@ namespace Esquirlas.API.Controllers
     [ApiController]
     public class PersonajesController : ControllerBase
     {
+        #region Obj and Constructor
         private readonly IPersonajesServices IpersonajesServices;
         public PersonajesController(IPersonajesServices IpersonajesServices)
         {
             this.IpersonajesServices = IpersonajesServices;
-        }
-
+        } 
+        #endregion
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes([FromQuery] Personaje request)
+        public ActionResult<Result> GetAllPersonajes([FromQuery] PersonajeDTO personajeDTO)
         {
-            var response = IpersonajesServices.GetAllPersonajes(request);
+            var response = IpersonajesServices.GetAllPersonajes(personajeDTO);
 
             return response;
         }

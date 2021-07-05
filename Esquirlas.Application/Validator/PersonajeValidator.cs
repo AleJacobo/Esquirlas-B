@@ -26,6 +26,14 @@ namespace Esquirlas.Application.Validator
                 .NotNull()
                 .NotEmpty();
 
+            RuleFor(x => x.Clase)
+                .NotNull()
+                .NotEmpty();
+
+            RuleFor(x => x.Raza)
+                .NotNull()
+                .NotEmpty();
+
             RuleFor(x => x.Status)
                 .NotNull()
                 .NotEmpty();

@@ -11,13 +11,15 @@ namespace Esquirlas.Infrastructure.Repositories
 {
     public class PersonajesRepository: IPersonajesRepository
     {
+        #region Obj and Context
         private readonly DataContext context;
         public PersonajesRepository(DataContext context)
         {
             this.context = context;
-        }
+        } 
+        #endregion
         #region FormaAle
-		//forma ale
+        //forma ale
         /*
         public List<PersonajesDTO> getAllPersonajes()
         {
@@ -77,26 +79,30 @@ namespace Esquirlas.Infrastructure.Repositories
             };
             return personajesDTO;
         } */
-	#endregion
-        //forma nelson
-        // Todo se realiza al enlazarlo con la interface y el datacontext
+        #endregion
+        
         public IQueryable<Personaje> GetAllPersonajes()
         {            
             return context.Personajes
                 .Where(x => x.IsDeleted == false);
         }
-        public Personaje GetPersonajeById(Guid personajeId)
+        public Personaje GetPersonajeById(int personajeId)
         {
             return context.Personajes
                 .Where(x => x.IsDeleted == false && x.PersonajeId == personajeId).FirstOrDefault();
         }
-        public bool PersonajeExists(Guid personajeId)
+        public bool PersonajeExists(int personajeId)
         {
             return context.Personajes.Any(x => x.PersonajeId == personajeId);
         }
         public void CreatePersonaje(Personaje entity)
         {
             context.Personajes.Add(entity);
+            context.SaveChanges();
+        }
+        public void UpdatePersonaje(Personaje entity)
+        {
+            context.Personajes.Update(entity);
             context.SaveChanges();
         }
         /*public void DeletePersonaje(Guid personajeId)
@@ -108,10 +114,5 @@ namespace Esquirlas.Infrastructure.Repositories
             context.Facciones.Update(personaje);
             context.SaveChanges();
         } */
-        public void UpdatePersonaje(Personaje entity)
-        {
-            context.Personajes.Update(entity);
-            context.SaveChanges();
-        }
     }
 }

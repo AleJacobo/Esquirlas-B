@@ -122,3 +122,10 @@ C:\Users\facu\Desktop\INCCOMMUNITY\MASTER-INCOMMUNITY\ESQUIRLAS\Esquirlas.API\ob
 C:\Users\facu\Desktop\INCCOMMUNITY\MASTER-INCOMMUNITY\ESQUIRLAS\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.dll
 C:\Users\facu\Desktop\INCCOMMUNITY\MASTER-INCOMMUNITY\ESQUIRLAS\Esquirlas.API\obj\Debug\net5.0\ref\Esquirlas.API.dll
 C:\Users\facu\Desktop\INCCOMMUNITY\MASTER-INCOMMUNITY\ESQUIRLAS\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.pdb
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.csprojAssemblyReference.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.AssemblyInfoInputs.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.AssemblyInfo.cs
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.csproj.CoreCompileInputs.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Jacobz\source\repos\AleJacobo\Esquirlas-B\Esquirlas.API\obj\Debug\net5.0\Esquirlas.API.dll
