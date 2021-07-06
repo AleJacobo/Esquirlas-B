@@ -13,11 +13,11 @@ namespace Esquirlas.Application.AutoMappers
     {
         public MappFacciones()
         {
-            CreateMap<FaccionesDTO, Faccion>().ReverseMap();
-            //Se puede personalizar para cuando no usas los mismos datos en cada clase o cuando se llaman distinto pero es lo mismo (ejemplo dos idiomas)
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
-                .ForMember(dest => dest.IsDeleted, opt => opt.MapFrom(src => src.IsDeleted));                
+            CreateMap<FaccionesDTO, Faccion>().ReverseMap()
+            //Se puede personalizar para cuando no usas los mismos datos en cada clase o cuando se llaman distinto pero es lo mismo (ejemplo con dos idiomas)
+                .ForMember(x => x.Name, y => y.MapFrom(z => z.Name))
+                .ForMember(x => x.Status, y => y.MapFrom(z => z.Status))
+                .ForMember(x => x.IsDeleted, y => y.MapFrom(z => z.IsDeleted));                
         }
     }
 }
