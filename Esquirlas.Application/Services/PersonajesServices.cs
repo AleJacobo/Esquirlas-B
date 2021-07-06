@@ -65,11 +65,13 @@ namespace Esquirlas.Application.Services
 
         public Result DeletePersonaje(Guid PersonajeId)
         {
-            Personaje entity = IpersonajesRepository.GetPersonajeById(PersonajeId);
-            if (entity == null)
+            Personaje request = IpersonajesRepository.GetPersonajeById(PersonajeId);
+            if (request == null)
                 return new Result().NotFound();
 
-            entity.IsDeleted = true;
+            request.IsDeleted = true;
+
+            var entity = mapper.Map<Personaje>(request);
 
             IpersonajesRepository.UpdatePersonaje(entity);
             return new Result().Success("Se eliminó el Personaje");
