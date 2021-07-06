@@ -1,6 +1,7 @@
 using Esquirlas.Application.Interfaces;
 using Esquirlas.Application.Services;
 using Esquirlas.Application.Validator;
+using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
 using Esquirlas.Infrastructure;
 using Esquirlas.Infrastructure.Interfaces;
@@ -48,7 +49,7 @@ namespace Esquirlas.API
             services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonajeValidator>());
 
             /// Add Automapper
-            services.AddAutoMapper(typeof(Personaje));
+            services.AddAutoMapper(typeof(PersonajeDTO));
 
             /// Add Swagger Personalizado
             services.AddSwaggerGen(c =>
