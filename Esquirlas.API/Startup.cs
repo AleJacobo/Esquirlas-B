@@ -1,3 +1,4 @@
+using Esquirlas.Application.AutoMappers;
 using Esquirlas.Application.Interfaces;
 using Esquirlas.Application.Services;
 using Esquirlas.Application.Validator;
@@ -55,9 +56,9 @@ namespace Esquirlas.API
             services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonajeValidator>());            
 
             /// Add Automapper
-            services.AddAutoMapper(typeof(Personaje));
-            services.AddAutoMapper(typeof(Faccion));
-            services.AddAutoMapper(typeof(User));
+            services.AddAutoMapper(typeof(MappPersonajes));
+            services.AddAutoMapper(typeof(MappFacciones));
+            services.AddAutoMapper(typeof(MappUsers));
 
             /// Add Swagger Personalizado
             services.AddSwaggerGen(c =>
