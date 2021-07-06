@@ -13,7 +13,8 @@ namespace Esquirlas.Application.AutoMappers
     {
         public MappUsers()
         {
-            CreateMap<UsersDTO, User>()
+            CreateMap<UsersDTO, User>().ReverseMap();
+            //Se puede personalizar para cuando no usas los mismos datos en cada clase o cuando se llaman distinto pero es lo mismo (ejemplo dos idiomas)  
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
