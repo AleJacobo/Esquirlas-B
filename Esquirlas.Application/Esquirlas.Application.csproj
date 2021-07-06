@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Esquirlas.Domain\Esquirlas.Domain.csproj" />
     <ProjectReference Include="..\Esquirlas.Infrastructure\Esquirlas.Infrastructure.csproj" />
   </ItemGroup>
 

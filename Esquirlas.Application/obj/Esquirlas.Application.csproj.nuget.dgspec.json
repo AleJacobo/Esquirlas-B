@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj": {}
+    "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj": {
+    "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj",
         "projectName": "Esquirlas.Application",
-        "projectPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj",
-        "packagesPath": "C:\\Users\\Jacobz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Application\\obj\\",
+        "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Application\\Esquirlas.Application.csproj",
+        "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jacobz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Augusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj"
+              "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj": {
+                "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj"
+              },
+              "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj"
               }
             }
           }
@@ -72,25 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj": {
+    "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj",
         "projectName": "Esquirlas.Domain",
-        "projectPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj",
-        "packagesPath": "C:\\Users\\Jacobz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj",
+        "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jacobz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Augusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -130,25 +125,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj": {
+    "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj",
         "projectName": "Esquirlas.Infrastructure",
-        "projectPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Jacobz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\Esquirlas.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Augusto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Jacobz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Augusto\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -162,8 +153,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj": {
-                "projectPath": "C:\\Users\\Jacobz\\source\\repos\\AleJacobo\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj"
+              "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj": {
+                "projectPath": "C:\\Users\\Augusto\\Source\\Repos\\Esquirlas-B\\Esquirlas.Domain\\Esquirlas.Domain.csproj"
               }
             }
           }
@@ -206,7 +197,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
