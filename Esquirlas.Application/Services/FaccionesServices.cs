@@ -25,7 +25,7 @@ namespace Esquirlas.Application.Services
         #endregion
         public Result GetAllFacciones()
         {
-            var faccionesDb = Ifaccionesrepository.GetAllFacciones();
+            var faccionesDb = IfaccionesRepository.GetAllFacciones();
 
             var response = faccionesDb;
 
@@ -53,7 +53,7 @@ namespace Esquirlas.Application.Services
 
             entity.IsDeleted = true;
 
-            Ifaccionesrepository.UpdateFaccion(entity);
+            IfaccionesRepository.UpdateFaccion(entity);
             return new Result().Success("Se eliminó la Faccion");
         }
         public Result UpdateFaccion(FaccionDTO faccionDTO)

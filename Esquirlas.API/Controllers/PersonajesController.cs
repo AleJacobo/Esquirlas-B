@@ -35,7 +35,14 @@ namespace Esquirlas.API.Controllers
         {
             var response = IpersonajesServices.PersonajeFilterBy(filtro);
 
-            return response;
+            return Ok(response);
+        }
+
+        [HttpGet("{personajeId}")]
+        public ActionResult<Personaje> GetPersonajeById(Guid personajeId)
+        {
+            var response = IpersonajesServices.GetPersonajeById(personajeId);
+            return Ok(response);
         }
 
         [HttpPost]

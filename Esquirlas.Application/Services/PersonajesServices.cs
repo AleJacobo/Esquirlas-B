@@ -23,18 +23,22 @@ namespace Esquirlas.Application.Services
         {
             this.Ipersonajesrepository = Ipersonajesrepository;
             this.mapper = mapper;
-        } 
-        #endregion
-        public Result GetAllPersonajes()
+        }
+
+        public IEnumerable<Personaje> GetAllPersonajes()
         {
-            var personajesDb = Ipersonajesrepository.GetAllPersonajes();
+            var result = IpersonajesRepository.GetAllPersonajes();
+            var response = mapper.Map<IEnumerable<Personaje>>(result);
 
-            var response = personajesDb;
+            return response;            
+        }
 
-            var response2 = mapper.Map<List<Personaje>>(response);
+        public Personaje GetPersonajeById(Guid personajeId)
+        {
+            var result = IpersonajesRepository.GetPersonajeById(personajeId);
+            var response = mapper.Map<Personaje>(result);
 
-            return new Result().Success($"{response2}");
-            
+            return response;
         }
         public Result CreatePersonaje(PersonajeDTO personajeDTO)
         {
@@ -44,7 +48,7 @@ namespace Esquirlas.Application.Services
 
             var entity = mapper.Map<Personaje>(personajeDTO);
 
-            Ipersonajesrepository.CreatePersonaje(entity);
+            IpersonajesRepository.CreatePersonaje(entity);
 
             return new Result().Success($"Se Registró el Personaje {entity.Name} {entity.LastName}");
         }
@@ -54,9 +58,11 @@ namespace Esquirlas.Application.Services
             if (entity == null)
                 return new Result().NotFound();
 
-            entity.IsDeleted = true;
+            request.IsDeleted = true;
 
-            Ipersonajesrepository.UpdatePersonaje(entity);
+            var entity = mapper.Map<Personaje>(request);
+
+            IpersonajesRepository.UpdatePersonaje(entity);
             return new Result().Success("Se eliminó el Personaje");
         }
         public Result UpdatePersonaje(PersonajeDTO personajeDTO)

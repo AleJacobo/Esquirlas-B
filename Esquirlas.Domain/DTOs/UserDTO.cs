@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Domain.DTOs
 {
-    public class UserDTO
+    public class FaccionesDTO
     {
+        public int FaccionId { get; set; }
+        public string Name { get; set; }
+        public string Status { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }
 
