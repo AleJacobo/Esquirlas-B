@@ -2,7 +2,6 @@ using Esquirlas.Application.AutoMappers;
 using Esquirlas.Application.Interfaces;
 using Esquirlas.Application.Services;
 using Esquirlas.Application.Validator;
-using Esquirlas.Domain.Entities;
 using Esquirlas.Infrastructure;
 using Esquirlas.Infrastructure.Interfaces;
 using Esquirlas.Infrastructure.Repositories;
@@ -53,12 +52,12 @@ namespace Esquirlas.API
             services.AddTransient<IUsersRepository, UsersRepository>();
 
             /// Add FluentValidation
-            services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonajeValidator>());            
+            services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<PersonajeValidator>());
 
             /// Add Automapper
-            services.AddAutoMapper(typeof(MappPersonajes));
-            services.AddAutoMapper(typeof(MappFacciones));
-            services.AddAutoMapper(typeof(MappUsers));
+            services.AddAutoMapper(typeof(mapPersonajes));
+            services.AddAutoMapper(typeof(mapFacciones));
+            services.AddAutoMapper(typeof(mapUsers));
 
             /// Add Swagger Personalizado
             services.AddSwaggerGen(c =>
@@ -123,7 +122,7 @@ namespace Esquirlas.API
             {
                 /// Endpoint Controller
                 endpoints.MapControllers();
-                
+
             });
         }
     }

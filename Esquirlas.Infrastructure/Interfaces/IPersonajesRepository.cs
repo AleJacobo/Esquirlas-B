@@ -1,19 +1,16 @@
 ﻿using Esquirlas.Domain.Entities;
-using System;
-using System.Collections.Generic;
+using Esquirlas.Domain.Enums;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Interfaces
 {
     public interface IPersonajesRepository
     {
         IQueryable<Personaje> GetAllPersonajes();
-        Personaje GetPersonajeById(Guid personajeId);
-        bool PersonajeExists(Guid personajeId);
+        Personaje GetPersonajeById(int personajeId);
+        bool PersonajeExists(int personajeId);
         void CreatePersonaje(Personaje entity);
         void UpdatePersonaje(Personaje entity);
-        void DeletePersonaje(Guid personajeId);
+        IQueryable<Personaje> PersonajeFilterBy(eFiltrosPersonajes filter);
     }
 }

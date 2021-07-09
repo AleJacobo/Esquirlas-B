@@ -1,23 +1,23 @@
+using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Esquirlas.Domain.Entities;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
-    public class PersonajesRepository: IPersonajesRepository
+    public class PersonajesRepository : IPersonajesRepository
     {
+        #region Obj and Context
         private readonly DataContext context;
         public PersonajesRepository(DataContext context)
         {
             this.context = context;
         }
+        #endregion
         #region FormaAle
-		//forma ale
+        //forma ale
         /*
         public List<PersonajesDTO> getAllPersonajes()
         {
@@ -77,20 +77,18 @@ namespace Esquirlas.Infrastructure.Repositories
             };
             return personajesDTO;
         } */
-	#endregion
-        //forma nelson
-        // Todo se realiza al enlazarlo con la interface y el datacontext
+        #endregion
         public IQueryable<Personaje> GetAllPersonajes()
-        {            
+        {
             return context.Personajes
                 .Where(x => x.IsDeleted == false);
         }
-        public Personaje GetPersonajeById(Guid personajeId)
+        public Personaje GetPersonajeById(int personajeId)
         {
             return context.Personajes
                 .Where(x => x.IsDeleted == false && x.PersonajeId == personajeId).FirstOrDefault();
         }
-        public bool PersonajeExists(Guid personajeId)
+        public bool PersonajeExists(int personajeId)
         {
             return context.Personajes.Any(x => x.PersonajeId == personajeId);
         }
@@ -98,21 +96,17 @@ namespace Esquirlas.Infrastructure.Repositories
         {
             context.Personajes.Add(entity);
             context.SaveChanges();
-        }        
+        }
         public void UpdatePersonaje(Personaje entity)
         {
             context.Personajes.Update(entity);
             context.SaveChanges();
         }
-        public void DeletePersonaje(Guid personajeId)
+        public IQueryable<Personaje> PersonajeFilterBy(eFiltrosPersonajes filter)
         {
-            var personaje = context.Personajes
-                .Where(x => x.PersonajeId == personajeId && x.IsDeleted == false).FirstOrDefault();
-
-            personaje.IsDeleted = true;
-
-            context.Personajes.Remove(personaje);
-            context.SaveChanges();
+            return context.Personajes
+                 .Where(x => x.IsDeleted == false && x.Equals(filter));
         }
+
     }
 }

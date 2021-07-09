@@ -1,11 +1,10 @@
 ﻿using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
+using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Esquirlas.API.Controllers
 {
@@ -20,17 +19,17 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes([FromQuery] Faccion request)
+        public ActionResult<IEnumerable<FaccionDTO>> GetAllFacciones()
         {
-            var response = IfaccionesServices.GetAllFacciones(request);
+            var response = IfaccionesServices.GetAllFacciones();
 
-            return response;
+            return Ok(response);
         }
 
         [HttpPost]
-        public ActionResult<Result> Create([FromBody] Faccion request)
+        public ActionResult<FaccionDTO> CreateFaccion([FromBody] FaccionDTO faccionDTO)
         {
-            var response = IfaccionesServices.CreateFaccion(request);
+            var response = IfaccionesServices.CreateFaccion(faccionDTO);
 
             if (response.HasErrors)
                 return BadRequest(response.Messages);
@@ -39,9 +38,9 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Result> Update()
+        public ActionResult<Result> UpdateFaccion(FaccionDTO faccionDTO)
         {
-            var response = IfaccionesServices.UpdateFaccion();
+            var response = IfaccionesServices.UpdateFaccion(faccionDTO);
 
             if (response.HasErrors)
             {
@@ -52,13 +51,22 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpDelete("{faccionId}")]
-        public ActionResult<Result> Delete([FromRoute] int faccionId)
+        public ActionResult<Result> Delete([FromRoute] FaccionDTO faccionDTO)
         {
-            var response = IfaccionesServices.DeleteFaccion(faccionId);
+            var response = IfaccionesServices.DeleteFaccion(faccionDTO);
 
             return response.HasErrors
                 ? BadRequest(response.Messages)
                 : Ok(response);
         }
+
+        [HttpGet]
+        public ActionResult<Result> FaccionesFilterBy([FromQuery] int filtro)
+        {
+            var response = IfaccionesServices.FaccionFilterBy(filtro);
+
+            return Ok(response);
+        }
+
     }
 }
