@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Esquirlas.API
 {
@@ -15,6 +10,7 @@ namespace Esquirlas.API
     {
         public static void Main(string[] args)
         {
+            /* cambiado por app.UseExceptionHandler que nos recomendo sebas
             //Configuracion de tratamiento de errores basica
             try
             {
@@ -29,6 +25,7 @@ namespace Esquirlas.API
             {
                 Log.CloseAndFlush();
             }
+            */
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

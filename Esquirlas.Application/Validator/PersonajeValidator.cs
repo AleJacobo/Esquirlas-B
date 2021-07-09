@@ -1,10 +1,5 @@
 ﻿using Esquirlas.Domain.Entities;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Validator
 {
@@ -26,6 +21,14 @@ namespace Esquirlas.Application.Validator
                 .NotNull()
                 .NotEmpty();
 
+            RuleFor(x => x.Clase)
+                .NotNull()
+                .NotEmpty();
+
+            RuleFor(x => x.Raza)
+                .NotNull()
+                .NotEmpty();
+
             RuleFor(x => x.Status)
                 .NotNull()
                 .NotEmpty();
@@ -36,7 +39,7 @@ namespace Esquirlas.Application.Validator
 
 
             // continuar con el resto conforme a personaje configuration
-                
+
         }
     }
 }

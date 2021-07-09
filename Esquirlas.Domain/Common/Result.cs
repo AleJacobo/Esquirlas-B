@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Esquirlas.Domain.Common
 {
     public class Result
     {
+
+        public bool HasErrors { get; set; }
+        public IList<string> Messages { get; set; }
+
         public Result()
         {
             HasErrors = false;
             Messages = new List<string>();
         }
-
-        public bool HasErrors { get; set; }
-        public IList<string> Messages { get; set; }
-
 
         public Result Success(string message)
             => new Result() { HasErrors = false, Messages = new List<string>() { message } };
@@ -25,6 +21,6 @@ namespace Esquirlas.Domain.Common
             => new Result() { HasErrors = true, Messages = new List<string>() { message } };
 
         public Result NotFound()
-            => new Result() { HasErrors = true, Messages = new List<string>() { "No se encontró un registro con los datos enviados" } };
+            => new Result() { HasErrors = true, Messages = new List<string>() { "No se Encontró un Registro con los Datos Enviados" } };
     }
 }

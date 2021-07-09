@@ -1,11 +1,11 @@
 ﻿using Esquirlas.Application.Interfaces;
 using Esquirlas.Domain.Common;
+using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Esquirlas.API.Controllers
 {
@@ -13,24 +13,40 @@ namespace Esquirlas.API.Controllers
     [ApiController]
     public class PersonajesController : ControllerBase
     {
+        #region Obj and Constructor
         private readonly IPersonajesServices IpersonajesServices;
         public PersonajesController(IPersonajesServices IpersonajesServices)
         {
             this.IpersonajesServices = IpersonajesServices;
         }
+        #endregion
+        [HttpGet]
+        public ActionResult<IEnumerable<PersonajeDTO>> GetAllPersonajes()
+        {
+            var response = IpersonajesServices.GetAllPersonajes();
+
+            return Ok(response);
+        }
 
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes([FromQuery] Personaje request)
+        public ActionResult<Result> PersonajesFilterBy([FromQuery] int filtro)
         {
-            var response = IpersonajesServices.GetAllPersonajes(request);
+            var response = IpersonajesServices.PersonajeFilterBy(filtro);
 
-            return response;
+            return Ok(response);
+        }
+
+        [HttpGet("{personajeId}")]
+        public ActionResult<PersonajeDTO> GetPersonajeById(int personajeId)
+        {
+            var response = IpersonajesServices.GetPersonajeById(personajeId);
+            return Ok(response);
         }
 
         [HttpPost]
-        public ActionResult<Result> Create([FromBody] Personaje request)
+        public ActionResult<Result> CreatePersonaje([FromBody] PersonajeDTO personajeDTO)
         {
-            var response = IpersonajesServices.CreatePersonaje(request);
+            var response = IpersonajesServices.CreatePersonaje(personajeDTO);
 
             if (response.HasErrors)
                 return BadRequest(response.Messages);
@@ -39,9 +55,9 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Result> Update()
+        public ActionResult<Result> UpdatePersonaje(PersonajeDTO personajeDTO)
         {
-            var response = IpersonajesServices.UpdatePersonaje();
+            var response = IpersonajesServices.UpdatePersonaje(personajeDTO);
 
             if (response.HasErrors)
             {
@@ -52,9 +68,9 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpDelete("{personajeId}")]
-        public ActionResult<Result> Delete([FromRoute] Guid personajeId)
+        public ActionResult<Result> DeletePersonaje([FromRoute] PersonajeDTO personajeDTO)
         {
-            var response = IpersonajesServices.DeletePersonaje(personajeId);
+            var response = IpersonajesServices.DeletePersonaje(personajeDTO);
 
             return response.HasErrors
                 ? BadRequest(response.Messages)
