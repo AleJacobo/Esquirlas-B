@@ -25,6 +25,6 @@ namespace Esquirlas.Domain.Common
             => new Result() { HasErrors = true, Messages = new List<string>() { message } };
 
         public Result NotFound()
-            => new Result() { HasErrors = true, Messages = new List<string>() { "No se encontró un registro con los datos enviados" } };
+            => new Result() { HasErrors = true, Messages = new List<string>() { "No se Encontró un Registro con los Datos Enviados" } };
     }
 }

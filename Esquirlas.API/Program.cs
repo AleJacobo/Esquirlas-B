@@ -15,6 +15,7 @@ namespace Esquirlas.API
     {
         public static void Main(string[] args)
         {
+            /* cambiado por app.UseExceptionHandler que nos recomendo sebas
             //Configuracion de tratamiento de errores basica
             try
             {
@@ -29,6 +30,7 @@ namespace Esquirlas.API
             {
                 Log.CloseAndFlush();
             }
+            */
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

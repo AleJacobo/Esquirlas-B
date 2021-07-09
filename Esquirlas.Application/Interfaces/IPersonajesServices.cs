@@ -10,9 +10,10 @@ namespace Esquirlas.Application.Interfaces
 {
     public interface IPersonajesServices
     {
-        Result GetAllPersonajes(Personaje request);
+        IEnumerable<Personaje> GetAllPersonajes();
+        Personaje GetPersonajeById(Guid personajeId);
         Result CreatePersonaje(Personaje request);
-        Result DeletePersonaje(Guid PersonajeId);        
-        Result UpdatePersonaje();
+        Result UpdatePersonaje(Guid personajeId, Personaje request);
+        Result DeletePersonaje(Guid personajeId); 
     }
 }

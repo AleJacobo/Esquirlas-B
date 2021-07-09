@@ -9,36 +9,31 @@ using System.Threading.Tasks;
 
 namespace Esquirlas.Infrastructure.EntityConfigurations
 {
-    public class PersonajeConfiguration : IEntityTypeConfiguration<Personaje>
+    public class FaccionConfiguration : IEntityTypeConfiguration<Faccion>
     {
-        public void Configure(EntityTypeBuilder<Personaje> builder)
+        public void Configure(EntityTypeBuilder<Faccion> builder)
         {
-            builder.ToTable("Personajes");
+            builder.ToTable("Facciones");
 
-            builder.Property(e => e.PersonajeId)
+            builder.Property(e => e.FaccionId)
                 .HasAnnotation("Relational:ColumnName", "PersonajeId")
                 .ValueGeneratedOnAdd();
 
-            builder.HasKey(e => e.PersonajeId);
+            builder.HasKey(e => e.FaccionId);
 
-            builder.Property(x => x.Name)
+            builder.Property(e => e.Name)
                 .HasAnnotation("Relational:ColumnName", "Name")
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(50);
 
-            builder.Property(x => x.LastName)
-                .HasAnnotation("Relational:ColumnName", "LastName")
-                .IsRequired()
-                .HasMaxLength(30);
-
-            builder.Property(e => e.Age)
-                .HasAnnotation("Relational:ColumnName", "Age")
+            builder.Property(e => e.Status)
+                .HasAnnotation("Relational:ColumnName", "Status")
                 .IsRequired();
 
             builder.Property(e => e.IsDeleted)
                 .HasAnnotation("Relational:ColumnName", "IsDeleted")
                 .IsRequired();
-            // continuar con el resto con respesto a personje validator
+
         }
     }
 }

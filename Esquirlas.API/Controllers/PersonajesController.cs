@@ -20,11 +20,18 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes([FromQuery] Personaje request)
+        public ActionResult<IEnumerable<Personaje>> GetAllPersonajes()
         {
-            var response = IpersonajesServices.GetAllPersonajes(request);
+            var response = IpersonajesServices.GetAllPersonajes();
 
-            return response;
+            return Ok(response);
+        }
+
+        [HttpGet("{personajeId}")]
+        public ActionResult<Personaje> GetPersonajeById(Guid personajeId)
+        {
+            var response = IpersonajesServices.GetPersonajeById(personajeId);
+            return Ok(response);
         }
 
         [HttpPost]
@@ -39,9 +46,9 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpPut]
-        public ActionResult<Result> Update()
+        public ActionResult<Result> Update([FromBody] Guid personajeId, Personaje request)
         {
-            var response = IpersonajesServices.UpdatePersonaje();
+            var response = IpersonajesServices.UpdatePersonaje(personajeId, request);
 
             if (response.HasErrors)
             {

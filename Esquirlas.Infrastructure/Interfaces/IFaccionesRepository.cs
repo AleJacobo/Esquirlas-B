@@ -10,8 +10,8 @@ namespace Esquirlas.Infrastructure.Interfaces
     public interface IFaccionesRepository
     {
         IQueryable<Faccion> GetAllFacciones();
-        Faccion GetFaccionById(Guid faccionId);
-        bool FaccionExists(Guid faccionId);
+        Faccion GetFaccionById(int faccionId);
+        bool FaccionExists(int faccionId);
         void CreateFaccion(Faccion entity);
         void UpdateFaccion(Faccion entity);
     }

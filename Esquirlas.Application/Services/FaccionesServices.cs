@@ -14,17 +14,17 @@ namespace Esquirlas.Application.Services
     public class FaccionesServices : IFaccionesServices
     {
         private readonly IMapper mapper;
-        private readonly IFaccionesRepository Ifaccionesrepository;
+        private readonly IFaccionesRepository IfaccionesRepository;
 
-        public FaccionesServices(IMapper mapper, IFaccionesRepository Ifaccionesrepository)
+        public FaccionesServices(IMapper mapper, IFaccionesRepository IfaccionesRepository)
         {
-            this.Ifaccionesrepository= Ifaccionesrepository;
+            this.IfaccionesRepository = IfaccionesRepository;
             this.mapper = mapper;
         }
 
         public Result GetAllFacciones(Faccion request)
         {
-            var faccionesDb = Ifaccionesrepository.GetAllFacciones();
+            var faccionesDb = IfaccionesRepository.GetAllFacciones();
 
             var response = faccionesDb;
 
@@ -36,24 +36,24 @@ namespace Esquirlas.Application.Services
 
         public Result CreateFaccion(Faccion request)
         {
-            bool exists = Ifaccionesrepository.FaccionExists(request.FaccionId);
+            bool exists = IfaccionesRepository.FaccionExists(request.FaccionId);
             if (exists)
                 return new Result().Fail("Ya existe un registro de esa faccion");
 
             var entity = mapper.Map<Faccion>(request);
-            Ifaccionesrepository.CreateFaccion(entity);
+            IfaccionesRepository.CreateFaccion(entity);
 
             return new Result().Success($"Se Registró la Faccion {entity.Name}");
         }
-        public Result DeleteFaccion(Guid faccionId)
+        public Result DeleteFaccion(int faccionId)
         {
-            Faccion entity = Ifaccionesrepository.GetFaccionById(faccionId);
+            Faccion entity = IfaccionesRepository.GetFaccionById(faccionId);
             if (entity == null)
                 return new Result().NotFound();
 
             entity.IsDeleted = true;
 
-            Ifaccionesrepository.UpdateFaccion(entity);
+            IfaccionesRepository.UpdateFaccion(entity);
             return new Result().Success("Se eliminó la Faccion");
         }
 
