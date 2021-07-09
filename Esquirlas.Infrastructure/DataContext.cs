@@ -1,18 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Esquirlas.Domain.Common;
 using Esquirlas.Domain.Entities;
-using Esquirlas.Domain.Common;
-using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.EntityConfigurations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Esquirlas.Infrastructure
 {
-    public class DataContext: DbContext
+    public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Personaje> Personajes { get; set; }
         public DbSet<Faccion> Facciones { get; set; }
-        public DbSet<User> Users { get; set; } 
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,12 +19,12 @@ namespace Esquirlas.Infrastructure
             modelBuilder.ApplyConfiguration(new FaccionConfiguration());
             modelBuilder.ApplyConfiguration(new PersonajeConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-            
+
             SeedInitialData(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
 
-        private void SeedInitialData(ModelBuilder modelBuilder) 
+        private void SeedInitialData(ModelBuilder modelBuilder)
         {
             //model builder enlaza los datos prefijados de las libreries y enums creados a la base de datos
             /* no se cual usar
@@ -37,8 +36,7 @@ namespace Esquirlas.Infrastructure
 
             modelBuilder.Entity<Casa>().Property(e => e.Nombre).HasConversion<string>();
             modelBuilder.Entity<Clase>().Property(e => e.Nombre).HasConversion<string>();
-            modelBuilder.Entity<Deidad>().Property(e => e.Nombre).HasConversion<string>();
-            modelBuilder.Entity<Usuario>().Property(e => e.Nombre).HasConversion<string>();
+            modelBuilder.Entity<Dios>().Property(e => e.Nombre).HasConversion<string>();
 
             foreach (var item in CiudadesDictionary.Ciudades)
             {

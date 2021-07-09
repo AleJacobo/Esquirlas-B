@@ -1,23 +1,20 @@
+using Esquirlas.Domain.Entities;
+using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Esquirlas.Domain.Entities;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Esquirlas.Domain.Enums;
 
 namespace Esquirlas.Infrastructure.Repositories
 {
-    public class PersonajesRepository: IPersonajesRepository
+    public class PersonajesRepository : IPersonajesRepository
     {
         #region Obj and Context
         private readonly DataContext context;
         public PersonajesRepository(DataContext context)
         {
             this.context = context;
-        } 
+        }
         #endregion
         #region FormaAle
         //forma ale
@@ -81,9 +78,8 @@ namespace Esquirlas.Infrastructure.Repositories
             return personajesDTO;
         } */
         #endregion
-        
         public IQueryable<Personaje> GetAllPersonajes()
-        {            
+        {
             return context.Personajes
                 .Where(x => x.IsDeleted == false);
         }
@@ -100,20 +96,10 @@ namespace Esquirlas.Infrastructure.Repositories
         {
             context.Personajes.Add(entity);
             context.SaveChanges();
-        }        
+        }
         public void UpdatePersonaje(Personaje entity)
         {
             context.Personajes.Update(entity);
-            context.SaveChanges();
-        }
-        public void DeletePersonaje(Guid personajeId)
-        {
-            var personaje = context.Personajes
-                .Where(x => x.PersonajeId == personajeId && x.IsDeleted == false).FirstOrDefault();
-
-            personaje.IsDeleted = true;
-
-            context.Personajes.Remove(personaje);
             context.SaveChanges();
         }
         public IQueryable<Personaje> PersonajeFilterBy(eFiltrosPersonajes filter)
@@ -121,6 +107,6 @@ namespace Esquirlas.Infrastructure.Repositories
             return context.Personajes
                  .Where(x => x.IsDeleted == false && x.Equals(filter));
         }
-       
+
     }
 }

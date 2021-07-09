@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Esquirlas.Domain.Entities;
 
 namespace Esquirlas.Infrastructure.Interfaces
 {
     public interface IUsersRepository
     {
-
+        void CreateUser(User entity);
+        bool IsOn(string Email);
+        bool FindUser(string Email);
+        void LogIn(string Email, string Password);
+        void LogOut(string Email);
     }
 }

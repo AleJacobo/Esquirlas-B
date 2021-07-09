@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Esquirlas.Domain.Common;
+using Esquirlas.Domain.DTOs;
 
 namespace Esquirlas.Application.Interfaces
 {
     public interface IUsersServices
     {
+        Result CreateUser(UserDTO userDTO);
+        Result LogIn(string Email);
+        Result LogOut(string Email);
     }
 }

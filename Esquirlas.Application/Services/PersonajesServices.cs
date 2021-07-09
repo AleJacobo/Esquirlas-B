@@ -7,9 +7,6 @@ using Esquirlas.Domain.Enums;
 using Esquirlas.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Esquirlas.Application.Services
 {
@@ -17,32 +14,31 @@ namespace Esquirlas.Application.Services
     {
         #region Object and Context
         private readonly IMapper mapper;
-        private readonly IPersonajesRepository Ipersonajesrepository;
+        private readonly IPersonajesRepository IpersonajesRepository;
 
         public PersonajesServices(IMapper mapper, IPersonajesRepository Ipersonajesrepository)
         {
-            this.Ipersonajesrepository = Ipersonajesrepository;
+            this.IpersonajesRepository = Ipersonajesrepository;
             this.mapper = mapper;
         }
-
-        public IEnumerable<Personaje> GetAllPersonajes()
+        #endregion
+        public IEnumerable<PersonajeDTO> GetAllPersonajes()
         {
             var result = IpersonajesRepository.GetAllPersonajes();
-            var response = mapper.Map<IEnumerable<Personaje>>(result);
+            var response = mapper.Map<IEnumerable<PersonajeDTO>>(result);
 
-            return response;            
+            return response;
         }
-
-        public Personaje GetPersonajeById(Guid personajeId)
+        public PersonajeDTO GetPersonajeById(int personajeId)
         {
-            var result = IpersonajesRepository.GetPersonajeById(personajeId);
-            var response = mapper.Map<Personaje>(result);
+            var entity = IpersonajesRepository.GetPersonajeById(personajeId);
+            var response = mapper.Map<PersonajeDTO>(entity);
 
             return response;
         }
         public Result CreatePersonaje(PersonajeDTO personajeDTO)
         {
-            bool exists = Ipersonajesrepository.PersonajeExists(personajeDTO.PersonajeId);
+            bool exists = IpersonajesRepository.PersonajeExists(personajeDTO.PersonajeId);
             if (exists)
                 return new Result().Fail("Ya Existe un Registro de este Personaje");
 
@@ -54,8 +50,8 @@ namespace Esquirlas.Application.Services
         }
         public Result DeletePersonaje(PersonajeDTO personajeDTO)
         {
-            Personaje entity = Ipersonajesrepository.GetPersonajeById(personajeDTO.PersonajeId);
-            if (entity == null)
+            Personaje request = IpersonajesRepository.GetPersonajeById(personajeDTO.PersonajeId);
+            if (request == null)
                 return new Result().NotFound();
 
             request.IsDeleted = true;
@@ -67,13 +63,13 @@ namespace Esquirlas.Application.Services
         }
         public Result UpdatePersonaje(PersonajeDTO personajeDTO)
         {
-            var oldper = Ipersonajesrepository.GetPersonajeById(personajeDTO.PersonajeId);
+            var oldper = IpersonajesRepository.GetPersonajeById(personajeDTO.PersonajeId);
             if (oldper == null)
                 return new Result().NotFound();
 
             var entity = mapper.Map<Personaje>(personajeDTO);
 
-            Ipersonajesrepository.UpdatePersonaje(entity);
+            IpersonajesRepository.UpdatePersonaje(entity);
             return new Result().Success("Se han aplicado los cambios correctamente");
         }
         public Result PersonajeFilterBy(int filtro)
@@ -81,8 +77,8 @@ namespace Esquirlas.Application.Services
             eFiltrosPersonajes filter = (eFiltrosPersonajes)(Enum.GetValues(typeof(eFiltrosPersonajes)))
                 .GetValue(filtro);
 
-            var response = Ipersonajesrepository.PersonajeFilterBy(filter);
-            
+            var response = IpersonajesRepository.PersonajeFilterBy(filter);
+
             var response2 = mapper.Map<List<Personaje>>(response);
 
             return new Result().Success($"{response2}");

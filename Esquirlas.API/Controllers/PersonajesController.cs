@@ -2,12 +2,10 @@
 using Esquirlas.Domain.Common;
 using Esquirlas.Domain.DTOs;
 using Esquirlas.Domain.Entities;
-using Esquirlas.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Esquirlas.API.Controllers
 {
@@ -20,14 +18,14 @@ namespace Esquirlas.API.Controllers
         public PersonajesController(IPersonajesServices IpersonajesServices)
         {
             this.IpersonajesServices = IpersonajesServices;
-        } 
+        }
         #endregion
         [HttpGet]
-        public ActionResult<Result> GetAllPersonajes()
+        public ActionResult<IEnumerable<PersonajeDTO>> GetAllPersonajes()
         {
             var response = IpersonajesServices.GetAllPersonajes();
 
-            return response;
+            return Ok(response);
         }
 
         [HttpGet]
@@ -39,7 +37,7 @@ namespace Esquirlas.API.Controllers
         }
 
         [HttpGet("{personajeId}")]
-        public ActionResult<Personaje> GetPersonajeById(Guid personajeId)
+        public ActionResult<PersonajeDTO> GetPersonajeById(int personajeId)
         {
             var response = IpersonajesServices.GetPersonajeById(personajeId);
             return Ok(response);
